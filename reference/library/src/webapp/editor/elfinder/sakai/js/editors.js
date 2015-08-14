@@ -31,7 +31,6 @@ var ckeditor = (function() {
   // Exposed methods
   return {
     mimes : ['text/html'],
-    exts  : ['htm', 'html', 'xhtml'],
     load : function(textarea) {
       var $dialog = $(textarea).closest('.elfinder-dialog');
       ui.setSaveCloseButtons($dialog);
