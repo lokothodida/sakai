@@ -27,12 +27,24 @@ $.sakai.elfinder.options.handlers = {
   },
 };
 
+// Check for enter key being hit
+var enterHit;
+$(document).keydown(function(e) {
+  enterHit = e.which == 13;
+}).click(function() {
+  enterHit = false;
+});
+
 // When a file has been dblclicked, set the embed link to the file's path
-$.sakai.elfinder.options.getFileCallback = function(file) {
+$.sakai.elfinder.options.getFileCallback = function(file, instance) {
+  instance.options.commandsOptions.getfile = { folders: false };
   var $footer = $(elements.footer);
   $footer.data('embed', file.url);
   $footer.data('file', file);
-  console.log(file);
+
+  if (enterHit) {
+    $(elements.footer).find(elements.ok).click();
+  }
 };
 
 // Binding embedding functionality to the OK and Cancel buttons
