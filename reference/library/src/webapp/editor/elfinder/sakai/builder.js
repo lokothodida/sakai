@@ -12,6 +12,7 @@ new compressor.minify({
     'js/options.js',
     'js/editors.js',
     'js/confirm.js',
+    'js/i18n.js',
     'js/init.js'
   ],
   fileOut: 'js/build.min.js',
